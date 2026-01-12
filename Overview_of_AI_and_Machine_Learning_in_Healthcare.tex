@@ -1,0 +1,388 @@
+\documentclass[lettersize,journal]{IEEEtran}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{amsmath,amsfonts}
+\usepackage{algorithmic}
+\usepackage{array}
+\usepackage[caption=false,font=normalsize,labelfont=sf,textfont=sf]{subfig}
+\usepackage{textcomp}
+\usepackage{stfloats}
+\usepackage{url}
+\usepackage{verbatim}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage[utf8]{inputenc}
+\hyphenation{op-tical net-works semi-conduc-tor IEEE-Xplore}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+\usepackage{balance}
+\begin{document}
+\title{\Huge{Overview of AI and Machine Learning in Healthcare\\}}
+
+\author{\large{Antonia Voutouri, Arina Kostina, Panagiotis Menelaou, Michaella Bratsa, and Spyridon Sachmpazidis} \\
+  \textit{\normalsize [avouto01@ucy.ac.cy, akosti02@ucy.ac.cy, pmenel01@ucy.ac.cy,}
+  \textit{\normalsize mbrats01@ucy.ac.cy, ssachm02@ucy.ac.cy]} \\
+  \textit{Department of Computer Science}, \\
+  \textit{University of Cyprus}, \\
+  Nicosia, Cyprus
+
+\thanks{Manuscript created April, 2024; This work was developed in the context of the course CS202: Explorations into Computer Science of the Department of Computer Science of the University of Cyprus. The opinions expressed here are entirely that of the authors. No warranty is expressed or implied. User assumes all risk.}}
+%This work is distributed under the \LaTeX \ Project Public License (LPPL) ( http://www.latex-project.org/ ) version 1.3. 
+
+\maketitle
+
+\begin{abstract}
+This paper examines Artificial Intelligence in healthcare, detailing its evolution from historical developments to current applications and future potential. It highlights AI's impact on disease detection, health service delivery, and drug discovery, while also addressing future challenges and innovations in the field. Moreover, it describes the distinct approaches taken by each category of Machine learning: Supervised Learning, Unsupervised Learning, Semi-supervised Learning, and Reinforcement Learning. It offers an overview of two fundamental machine learning algorithms: Naive Bayes for classification and K-means for clustering. The paper underscores the key theoretical points, limitations, and practical applications associated with these algorithms. It also explores the significant advancements in medical imaging and electronic health records (EHR), highlighting the integration of artificial intelligence (AI) to enhance diagnostic precision and data management in healthcare and underscore the impact of technological progress on improving clinical outcomes and operational efficiencies in healthcare systems. Furthermore, this paper provides a perceptive examination of machine learning applications in important healthcare domains, with particular emphasis on breast cancer disclosure, thyroid condition diagnosis, and multiple sclerosis disease progression prediction. Symptoms, diagnoses, and the correlation of diseases with machine learning are also cited.
+
+\end{abstract}
+
+\begin{IEEEkeywords}
+Future AI Healthcare, Artificial Intelligence in Healthcare, AI modern medicine, Past AI Healthcare, Present AI Healthcare, Future AI healthcare, Supervised Learning, Unsupervised Learning, Semi-supervised Learning, Reinforcement Learning, Naïve Bayes, K-means, Classification algorithms, Clustering algorithms, Medical Imaging, Advancements in Medical Imaging, Electronic Health Records, Adoption of EHR, Digital Transformation in Healthcare, Overcoming challenges of EHR with AI, Thyroid Disorders, Hypothyroidism, Hyperthyroidism, Hashimoto's Disease, Thyroid Cancer, Breast Cancer, Multiple Sclerosis.
+\end{IEEEkeywords}
+
+
+\section{Introduction}
+\IEEEPARstart{I}{n} the modern era, where technology intersects seamlessly with daily life, Artificial Intelligence (AI) emerges as a revolutionary force in numerous fields, with healthcare at the forefront of this transformation. Projecting into the future, the already expansive role of AI in healthcare continues to evolve from theoretical underpinnings to real-world applications that promise to reshape medical practices. As healthcare challenges intensify globally—exacerbated by aging populations, rising costs, and pandemics—the use of AI technologies holds great promise in enhancing disease detection, optimizing service delivery, and accelerating drug discovery.\\
+This study offers insights into how early breakthroughs have paved the way for current advancements and future prospects by analyzing the historical evolution of AI in healthcare. It delves into the current state of AI applications in healthcare, discussing their impact on improving diagnostic accuracy, treatment efficacy, and operational efficiency. Furthermore, it projects into the future, speculating on how AI can develop further to meet the intricate ever-evolving problems facing the healthcare system of the future.\\
+This comprehensive analysis aims not only to document the milestones of AI in healthcare but also to understand its limitations, address ethical considerations, and anticipate future trends. Through this exploration, the paper seeks to offer a nuanced perspective on AI's potential to assist healthcare providers and revolutionize patient care, making healthcare more accessible, personalized, and effective.
+
+
+%Antonia
+\section{AI in healthcare}
+\textit{\\\textbf{The Role of Artificial Intelligence in Modern Medicine}}
+\textit{\\}
+The healthcare industry is currently undergoing a profound transformation, prompted by escalating healthcare costs and a notable shortage of medical professionals. This shift is driven by the necessity to address multiple systemic challenges such as limited access to care, inefficiencies, and the impacts of an aging population\cite{a3}, all magnified by global crises like the COVID-19 pandemic. These issues not only expose the vulnerabilities of existing healthcare systems but also highlight the urgent need for innovative solutions to enhance care delivery and improve administrative processes. The focus is shifting on tackling problems such as inequitable access, the absence of on-demand services, and a lack of transparency in pricing\cite{a2}.
+
+\textit{\\}
+\textit{\\}Artificial Intelligence (AI) is positioned as a pivotal tool in this transformation. It is being explored and implemented across various aspects of healthcare including disease detection, management of chronic conditions, delivery of health services, and drug discovery. The potential of AI to significantly address these health challenges is immense. However, its practical effectiveness is often hampered by the quality of the data it relies on and its inherent lack of human traits, such as empathy and ethical judgment. Moreover, the deployment of AI in healthcare raises several ethical concerns, including the risk of inaccurate decisions, accountability for mistakes, challenges in validating AI outcomes, biases in training data, data protection issues, public trust, and the potential impacts on personal dignity and social isolation in care settings. A key challenge lies in ensuring that AI development and utilization are transparent, serve the public interest, and continue to foster innovation within the healthcare sector\cite{a4}.
+\textit{\\}
+\textit{\\}In the context of these ongoing developments, the necessity for AI in healthcare becomes evident. Modern healthcare systems are burdened by high costs and significant disparities in access to care. Traditionally, medical knowledge was confined to textbooks, journals, and expert opinions formed through a master-apprentice dynamic. Physicians would accumulate experience through direct patient care and outcome observation. However, this method has its limitations in assimilating and applying the vast array of available medical knowledge and experience to patient care. AI steps in as a crucial aid, merging extensive patient data to enhance and refine the effectiveness of medical treatments. When leveraged correctly, AI can uncover invaluable insights from this data, aiding clinical decisions and potentially transforming patient outcomes\cite{a5}.
+\textit{\\}
+\textit{\\}In the following paragraphs, we will explore the evolution of AI in healthcare, tracing its past developments, examining its current applications, and discussing its future potential to reshape healthcare practices.
+
+\textit{\\\textbf{The Past, Present and Future of AI in Healthcare}}
+\textit{\\}
+\subsubsection{\textbf{Historical Context of AI in Healthcare}}
+The concept of Artificial Intelligence (AI) was formalized in 1956 during a workshop led by John McCarthy. This event set the stage for pioneering efforts by notable figures such as McCarthy, Marvin Minsky, Nathaniel Rochester, and Claude Shannon, among others, who drove advancements in the field of AI. Alan Turing had earlier contributed foundational ideas with his article "Computing Machinery and Intelligence," proposing the potential for computers to simulate intelligence, including automatic learning capabilities. Subsequent developments by Newell and Simon in heuristic research and mathematical theorems, such as the Logic Theorist program, further expanded AI's scope. Innovations like Selfridge’s face recognition technology and the mobile robot "Shakey," which utilized natural language processing, marked significant milestones in AI. By the late 1990s, technological advances and the availability of significant computing power allowed the creation of data-driven AI systems, leveraging vast datasets and sophisticated statistical techniques to solve complex problems\cite{a1}.
+\textit{\\}
+\textit{\\}In the healthcare sector, AI began its integration in the 1950s with the development of early computer-aided programs aimed at improving medical diagnoses. These initial applications leveraged AI to enhance clinical, diagnostic, and surgical processes by processing and analyzing vast amounts of medical data. This integration has significantly accelerated over the decades, thanks to advancements in computing capabilities and an increase in available digital data. Today, AI in healthcare not only continues to enhance various medical processes but also plays a crucial role in informed clinical decision-making and the discovery of new medical treatments. This historical overview highlights the significant, transformative impact that AI has had on medical practices from its inception to the sophisticated applications we encounter in modern healthcare\cite{a1,a2}.
+\textit{\\}
+\subsubsection{\textbf{AI in Modern Medicine Today}}
+Artificial intelligence (AI) is fundamentally described as computer software emulating human cognitive functions. Among various AI technologies, Artificial Neural Networks (ANN) have shown notable applications, especially in cardiology decision-making, proving more effective than traditional logistic regression models. For instance, ANNs have demonstrated predictive superiority in diagnosing myocardial ischemia in emergency patients with chest pain\cite{a6}. Another significant branch of AI, machine learning (ML), involves algorithms that learn from data to improve performance automatically. These algorithms are categorized into four types: supervised, unsupervised, semi-supervised, and reinforcement learning. In supervised learning, algorithms predict and stratify risks using methods like logistic regression and Bayesian networks\cite{a5}, showing greater success in predicting outcomes compared to conventional clinical scores. Unsupervised learning, on the other hand, involves techniques like hierarchical clustering and principal component analysis, enhancing disease prediction accuracy in fields such as nuclear cardiology.
+\textit{\\}
+\textit{\\}Deep learning, a more advanced form of ML, utilizes multiple layers of hidden neurons in neural networks to handle the increasing volume and complexity of big data. This method has been particularly effective in cardiac imaging, such as echocardiography and cardiac MRI, where it has improved the accuracy of endocardium tracking and left ventricle segmentation. Convolutional Neural Networks (CNN), a subtype of ANN derived from deep learning, have also shown efficacy in cardiac CT angiography for calculating coronary artery calcium using supervised learning, achieving more precise results than existing methods\cite{a4,a5}.
+\textit{\\}
+\textit{\\}These advancements in AI are dramatically reshaping healthcare today. AI is optimizing drug discovery by automating target identification and analyzing compounds for repurposing, thereby accelerating drug development and reducing redundancies. Major pharmaceutical companies are leveraging AI to enhance the discovery of treatments for diseases like cancer, signaling a shift towards more efficient and cost-effective drug development. AI is also revolutionizing clinical trials by automating data management, enhancing trial accuracy, and shortening durations through predictive analytics on real-world data. In patient care, AI-powered systems and devices are improving the quality of life and precision in diagnostics across various medical settings. From enhancing maternal care through risk identification to enabling mobility with advanced robotics, AI's role is pivotal in modern healthcare\cite{a4}.
+\textit{\\}
+\textit{\\}As AI continues to evolve, it is clear that its integration into healthcare will lead to even more groundbreaking developments. The next section will explore the future potential of AI in healthcare, examining how it might further revolutionize the field and address the complex challenges of tomorrow's medical landscape.
+\textit{\\}
+\subsubsection{\textbf{Future Prospects of AI in Healthcare}}
+Artificial intelligence is already reshaping healthcare, yet the journey towards its full integration into clinical practice is fraught with complexities and challenges. One significant hurdle is the current regulatory environment, which lacks standardized criteria for assessing the safety and efficacy of AI algorithms. There is a clear need for legislation to address these issues before AI and machine learning can be fully embraced in clinical settings\cite{a3}. The FDA has made some strides by providing guidance on evaluating and implementing AI in general wellness products. Looking ahead, cognitive computing is expected to support clinicians by enhancing decision-making and improving patient outcome predictions. The vast data generated from routine medical procedures necessitates the integration of AI into everyday practice, a shift already beginning to take hold in specialties like pathology and radiology\cite{a4}.
+\textit{\\}
+\textit{\\}As healthcare becomes increasingly digitized, it is crucial for medical professionals to view AI not with fear but as an invaluable tool that deepens the understanding of patient data. Physicians must prepare for the AI era by acquiring the necessary skills to apply machine learning models and interpret their results accurately\cite{a3,a4}.
+\textit{\\}
+\textit{\\}Looking to the future, AI is set to revolutionize healthcare with its applications in disease detection, drug discovery, and chronic condition management. Yet, this transformation presents several ethical, governance, and technical challenges. Rapid developments in AI technology are testing existing regulatory frameworks that may need to be revised to maintain transparency, accountability, and public interest alignment. As AI systems grow more autonomous, the imperative for them to perform ethically in decision-making also intensifies, sparking ongoing philosophical debates about the moral capacity of machines and the determination of ethical standards\cite{a3,a4}.
+\textit{\\}
+\textit{\\}Moreover, the practical application of AI in healthcare is often limited by issues such as poor data quality, inconsistencies in digitization of medical records, and a lack of standardization in IT systems. These limitations highlight AI's inability to fully replicate certain human qualities, such as compassion and contextual understanding, which are crucial in clinical settings. Along with concerns about the privacy and security of health data, these challenges outline the intricate landscape that AI must navigate to realize its potential in healthcare. It is essential for healthcare professionals and policymakers to acquire the skills needed to leverage AI technologies effectively, ensuring that AI fosters innovation while adhering to ethical standards and enhancing public welfare\cite{a3,a4}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.00\linewidth]{image.png}
+    \caption{Healthcare Transformation: The Shift from Products to Intelligence. Source: PWC industries healthcare publications in AI robotics. }
+    \label{fig:image}
+\end{figure}
+
+\textit{\\\textbf{Conclusion: The Ongoing Evolution of AI in Healthcare and the Path Ahead}}
+\textit{\\}
+As we look to the future, the evolution of AI from its inception in the mid-20th century to its current applications in healthcare shows a trajectory of transformative growth\cite{a1}. AI has transitioned from enhancing basic medical diagnostics to playing a pivotal role in complex areas like drug discovery and personalized patient care. Looking ahead, AI promises even more revolutionary changes in healthcare\cite{a2}. However, the path forward requires navigating challenges such as refining regulatory standards, ensuring ethical use, and improving data quality. As AI becomes increasingly integrated into healthcare systems, it is imperative that we address these challenges to fully realize AI’s potential to enhance patient outcomes and transform medical practices\cite{a3,a5,a6}.
+
+%Start of Spyridon's section
+\section{Machine Learning is split into categories}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.00\linewidth]{Picture1.png}
+    \caption{Classification of Machine Learning Algorithms.}
+    \label{fig:ml-categories}
+\end{figure}
+
+According to a leading expert in machine learning technologies, Arthur Samuel (1959), machine learning can be defined as the “field of study that gives computers the ability to learn without being explicitly programmed”. Nowadays, several approaches attempt to tackle this problem, and numerous algorithms that implement machine learning have been developed. Their usage is essential in most fields of our modern society therefore a great deal of effort was invested in their research. Even though machine learning algorithms solve many different problems, they still share some characteristics that distinguish them into different groups. As seen in \ref{fig:ml-categories}, machine learning can be categorized into 4 distinct categories: Supervised Learning, Unsupervised Learning, Semi-supervised Learning, and finally Reinforcement Learning\cite{s1}.
+\subsection{\textbf{Supervised Learning}}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.00\linewidth]{Picture2.png}
+    \caption{Supervised learning model.}
+    \label{fig:supervised-learning}
+\end{figure}
+
+The first category of machine learning is Supervised Learning. All the algorithms that fall under this category follow the same key principles. The main principle behind supervised learning is the use of labeled data sets (which is data that has already been annotated with a label that meaningfully describes each element) in order  to create a function that will be able to predict the outcome of future inputs that are unlabelled. These algorithms can also analyze their outputs and compare them with the intended results to finetune and rectify any potential errors in the model \cite{s2} \cite{s6}. A prime example of a Supervised Learning model can be seen in \ref{fig:supervised-learning}, where the labeled data (in this case apples) is given to the model for training purposes. After that, the model is asked to identify the given object (an apple) and the prediction of the machine is in this case correct. Essentially, supervised learning algorithms use the knowledge they gained in the past to predict the outcome \cite{s6}. 
+Supervised Learning can be split into two categories: Classification and Regression. The former uses algorithms to classify the elements of a dataset into distinct categories. For instance, some of the most common algorithms that use classification are the following: naïve Bayes, linear classifiers, k-nearest neighbor, random forest, support vector machines, and decision trees. The latter uses algorithms to explore the correlation of dependent and independent variables. For instance, some of the most common algorithms that use regression are the following: logistical regression, linear regression, and polynomial regression are all admired regression algorithms \cite{s5}.
+
+\subsection{\textbf{Unsupervised Learning}}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.00\linewidth]{Picture3.png}
+    \caption{Unsupervised learning model.}
+    \label{fig:unsupervised-learning}
+\end{figure}
+
+The second category of machine learning is Unsupervised Learning. The key difference between Unsupervised Learning and Supervised Learning is that it uses unlabelled data sets instead of labeled ones. Specifically, the model is given a data set consisting of unlabelled elements and it is up to the model to identify patterns in that data, in order to categorize it into groups. Naturally, this implies the usage of substantial amounts of data \cite{s7}. An example of Unsupervised Learning can be seen in \ref{fig:unsupervised-learning}, where unlabelled data (in this case images of cats and dogs) is given to the model. The model is then tasked with categorizing the data and using these algorithms it successfully distinguishes between the two types of animals \cite{s2}. Unsupervised Learning can be split into two categories: Clustering and Association. The former uses algorithms to group together elements that have the most correlation and separate them from those that have the least correlation. The latter uses algorithms to detect similar elements from big data sets. Some of the most common Unsupervised Learning algorithms include hierarchal clustering, k-means clustering, k-nearest neighbors, anomaly detection, apriori algorithm, neural networks, independent component analysis, principal component analysis and singular value decomposition. \cite{s5}.
+
+\subsection{\textbf{Semi-supervised Learning}}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.00\linewidth]{Picture4.png}
+    \caption{Learning diagram for Semi-supervised learning.}
+    \label{fig:semisupervised-learning}
+\end{figure}
+
+The third category of machine learning is Semi-supervised Learning. This category is a combination of both Supervised Learning and Unsupervised Learning. It is characterized by the use of labelled and unlabelled data. Similarly to Supervised learning, using the provided data it aims to create a function to predict the output for future unknown test inputs \cite{s3} \cite{s5}. As it can be seen in \ref{fig:semisupervised-learning}, the model is trained using labeled data and a much more significant quantity of unlabelled data, since unlabelled data is more prevalent in most fields of study \cite{s5}. Semi-supervised Learning can be categorized as Transudative or Inductive. The former uses the labeled data to train the model and then it takes the unlabelled data as input in order to predict a label for each element. The latter trains the model using both the labeled and unlabelled data as well as the unknown test data. As a result, it predicts the labels for the unlabelled data along with the unknown test data. These techniques can be used for classification, clustering dimension-reduction, and regression. Semi-supervised Learning depends on three assumptions: the smoothness assumption, the cluster assumption, and the manifold assumption. If the model has inadequate or inaccurate assumptions, then diminishing performance will be observed. Therefore, their accuracy is essential for a correct model \cite{s3}.
+
+\subsection{\textbf{Reinforcement Learning}}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.00\linewidth]{Picture5.png}
+    \caption{Reinforcement learning framework.}
+    \label{fig:reinforcement-learning}
+\end{figure}
+
+Finally, the fourth category of machine learning is Reinforcement Learning. The key feature that separates this category is the usage of agents, the environment, and a feedback signal(reward) during the learning process. The philosophy behind these algorithms can be observed in \ref{fig:reinforcement-learning}, where the agent is continuously analyzing the environment (which is only a simulation of the real system since direct interaction with that system is of high cost) and taking appropriate new actions depending on the result that previous action had on the state and the reward it earned. In the end, the experience acquired from this process is used create the most favorable decision-making rule \cite{s4} \cite{s5}. Reinforcement Learning can be separated into tow different categories: Positive Reinforcement and Negative Reinforcement.
+The former attempts everything to maximize the probability that the wanted behavior will reoccur. In contrast, the latter maximizes the same probability by avoiding unwanted behavior \cite{s5}. A Reinforcement Learning algorithm can be either Single Agent or Multi-Agent.
+As previously explained, for the single agent model in \ref{fig:reinforcement-learning}, the agent receives a reward based on the action he previously took. The value of the reward depends on the decision of the agent, positive means the decision was correct, and negative means it was incorrect. The objective of the agent is to maximize the reward across many several actions. The key difference in Multi-Agent models is, as the name suggests, the use of more than one agent. These agents make coordinated actions and together they aim to maximize the rewards they are receiving \cite{s4}.
+%end of Spyridon's section
+
+% Arina
+\section{Machine Learning algorithms}
+There is a huge amount of data generated from health monitoring systems, health service providers, and medical databases, which are too complex and voluminous to be processed and analyzed by traditional methods. Machine learning approaches offer the methodology and technology to transform these data into meaningful information for the automation of the decision making process in many areas of the medical field.\cite{arina1}
+\textit{\\}With the fast improvement of the AI and ML field, there is a wide range of applications and sectors where these innovative techniques show great potential, and already are an indispensable tool that provides great assistance to medical professionals. There are many algorithms, each one of them with its own advantages and disadvantages, so choosing a machine learning algorithm mainly depends on the problem we are trying to solve. In this section, we are focusing on the most broadly used algorithms utilized in areas such as diagnosis-making, prediction, and treatment planning.\\
+
+\subsubsection{\textbf{Classification Algorithms}}
+\textit{\\}One of the most broadly used applications of machine learning in healthcare is the classification of data and digital imaging, for the purpose of detecting anomalies and stating the potential diagnosis. Machine learning classification algorithms are particularly good in this task as they predict which category an observation belongs to, based on the input features.
+In a classification task, the goal is to learn a mapping from the input features to the output classes, such that when new data is presented to the model, it can predict the class label for that data, based on the learned patterns from the training data.
+There are different types of classification algorithms that compute this mapping by learning the behavior of the data, ranging from linear classifiers like Logistic Regression, Naïve Bayes to Support Vector Machine, Tree-based Classifiers, and Neural Networks.\cite{arina2}
+
+\textit{\\\textbf{Naïve Bayes}}
+\textit{\\}Naïve Bayes can be applied effectively for various tasks, including disease prediction, risk assessment, outcome prediction, cancer detection\cite{arina3}, and many more, and is one of the most effective classification algorithms. It is suited to use when the dimensionality of input is high\cite{arina4} something that is very common in medical data because it often involves a large number of features or variables. These features can include patient demographics, medical history, genetic information, laboratory test results, image data, and more. Managing and analyzing such high-dimensional data is a significant challenge in medical research and diagnosis prediction tasks. That is why the Naive Bayes Classifier technique is often employed to handle this complexity effectively.
+
+\textit{\\Theory}
+\textit{\\}Naive Bayesian classifier calculates a set of probability by counting the frequency and combinations of values in a given data set. It assumes that the presence of a particular feature in a class is unrelated to the presence of any other feature. This is where the term "naive" comes from because it's a simplifying assumption that might not always hold true in real-world scenarios. However, the algorithm tends to learn quickly in a variety of controlled classification problems.\cite{arina5}
+The Naive Bayes Classifier technique is based on the Bayes Theorem, which is stated below: 
+\textit{\\}Let $X$ be a data sample whose class label is not known and let $H$ be some hypothesis, such that the data sample X may belong to a specified class $C$. Bayes theorem is used for calculating the posterior probability $P(C\mid X)$, from $P(C)$, $P(X)$, and $P(X\mid C)$. Where $P(C\mid X)$ is the posterior probability of the target class, which is the probability of the occurrence of event C when event X occurs. $P(C)$ is called the prior probability of class, which is the probability of the occurrence of $C$. $P(X\mid C)$ is the likelihood which is the probability of predictor of the given class, meaning that it is the probability of the occurrence of event X when event $C$ occurs. $P(X)$ is the prior probability of the predictor of class, which is the probability of the occurrence of $X$. The formula is the following:
+
+\begin{equation}
+\label{deqn_ex1}
+P(C|X) = \frac{P(X|C)*P(C)}{P(X)}
+\end{equation}
+
+The Naive Bayes classifier does the following: 
+\textit{\\}1. Let D be the training dataset associated with class labels. Each tuple, which is the data that is being assigned to a specific class, is represented by an n-dimensional element vector, $X=(x1, x2, x3,.....,xn)$. 
+\textit{\\}2. Suppose that we have m classes $C1, C2, C3...., Cm$. For an unknown tuple X, the classifier will predict that X belongs to the class with higher posterior probability, conditioned on X. i.e., the Naive Bayesian classifier assigns an unknown tuple X to the class Ci if and only if 
+
+\begin{equation}
+\label{deqn_ex2}
+P(Ci|X) > P(Cj|X)
+\end{equation}
+
+For 1 $\leq$ j $\leq$ m, and i $\neq$ j, above posterior probabilities are computed using Bayes Theorem.\cite{arina6}
+
+\textit{\\}The Naïve Bayesian classifier pays particular attention to the selection of features because this choice significantly impacts its performance, making it sensitive to feature selection. Features, also known as predictors, attributes, or independent variables, are the measurable properties or characteristics of the data that we provide to the machine learning model in order to train it. Therefore to improve the scalability, efficiency, and accuracy of the classifier it is important to have a good feature selection methodology that considers the domain and the algorithm characteristics.\cite{arina7}
+
+\textit{}
+
+\subsubsection{\textbf{Clustering algorithms}}
+\textit{\\}Clustering is an unsupervised Machine learning technique that is used to classify the unlabeled data set into groups with similar characteristics. If there are various data points then this can be defined as a way of grouping the unlabeled data point into various predefined classes. In medical data, there are often distinct subgroups or patterns that can be identified through clustering analysis. For example, in medical imaging data such as MRI or CT scans, different types of tissues or anomalies may form distinct clusters. Similarly, in genomic data, different genetic profiles or expression patterns may lead to the formation of clusters representing different patient subgroups or disease types.
+Some of the most broadly used algorithms are Hierarchical clustering, OPTICS, Gaussian clustering, and K- Mean Clustering\cite{arina8}
+
+\textit{\\\textbf{K-means clustering}}
+\textit{\\}K-means is a numerical, unsupervised, non-deterministic, iterative method. It is simple and very fast, so in many practical applications, the method has proven to be a very effective way that can produce good clustering results. It is very suitable for producing globular clusters.\cite{arina9}
+
+\textit{\\Theory}
+\textit{\\}
+Let $x1, x2, ... , xp$ be our data points. Initially, we select how many clusters ($k$) we want to separate our data in. This is a crucial step because K-means requires you to specify the number of clusters upfront. 
+Next, the algorithm randomly selects $k$ points from your data as the initial cluster centers. These points are called centroids: $C1, C2, C3...., Ck$. 
+\textit{\\}1) In the next phase each data point in the dataset is assigned to the nearest centroid based on some distance measure, usually the Euclidean distance. With the Euclidean equation the distance between a vector $x = (x1, ... , xn)$ and a vector $y = (y1, ... , yn)$ is calculated as follows:
+
+\begin{equation}
+\label{deqn_ex3}
+D = ||x - y|| = \left[ \sum\limits_{i=1}^{n} (xi - yi)^2 \right]^\frac{1}{2}
+\end{equation}
+
+
+\textit{\\}2) After all data points have been assigned to clusters, the centroids are re-calculated. Each centroid is moved to the mean (average) of all the data points assigned to its cluster, therefore the new centroid is the center of its cluster:
+
+\begin{equation}
+\label{deqn_ex4}
+Cj = \frac{1}{|Sj|} {\sum\limits_{Xi \in Sj}} Xi
+\end{equation}
+
+Where $Sj$ is the set of data points assigned to centroid $Cj$.
+
+\textit{\\}The steps 1) and 2) are repeated iteratively and the goal is to minimize the criterion function. Supposing that the target object is $x$, and $Ci$ is the centroid of cluster $Si$, criterion function is defined as follows: 
+
+\begin{equation}
+\label{deqn_ex5}
+E = \sum\limits_{i=1}^{k}\sum\limits_{x \in Si} ||x - Ci||^2
+\end{equation}
+
+
+\textit{\\}This process is repeated until the convergence. Convergence is typically defined by a condition where the centroids no longer change significantly between iterations or a maximum number of iterations is reached. 
+\textit{\\}The k-means clustering algorithm always converges to local minimum. Once the algorithm converges, the process finishes and now each data point belongs to its cluster.\cite{arina9}\cite{arina10}
+As the cluster centroids are initialized at random, the algorithm should be repeated with random initialization and the results should be combined, in order to obtain the best possible results.\cite{arina11}
+
+\textit{\\}K-means algorithm is often used in combination with other algorithms to provide better accuracy in the specific task. 
+K-means can effectively handle noise and outliers in the data.\cite{arina12}. Also, the k-means clustering filtering strategy can effectively delete boundary samples, noise samples, and overlapping samples, and avoid the loss of important samples and the generation of new boundary samples.\cite{arina13}
+K-means can be used as a preprocessing step for other machine learning algorithms. By <classifying the data set through a certain number of clusters fixed apriori, we can reduce the dimensionality of the feature space.\cite{arina14}
+
+
+\section{Medical Imaging}
+\subsection{\textbf{Evolution and Impact of Technology in Medical Imaging}}
+Medical Imaging began in November 1895 with Wilhelm Conrad Roentgen's discovery of the X-ray\cite{r4}. As far as we are concerned, medical imaging is crucial to humanity regarding their well-being, from disease detection, lesion segmentation, diagnosis, treatment selection, response assessment, and clinical prediction. Computers entered the world of medical imaging in the early 1970s with the advent of computed tomography (CT) and then with magnetic resonance imaging (MRI)\cite{r4}. AI (Artificial Intelligence) with ML (Machine Learning) and DL (Deep Learning) methods can effectively assist clinical specialists in healthcare, to improve medical imaging understanding and in-depth analysis\cite{r3}.
+
+\subsection{\textbf{Medical Imaging consists of:}}
+\subsubsection{X-rays – W.C. Roentgen, 1895\cite{r2},Figure \ref{fig:xray}}
+\textbf{X-ray}, is one of the most commonly used techniques, where the image is produced by passing X-rays which are generated by a source through the body detecting the weakened X-rays on the other side with a detector array\cite{r1}.  The resulting image is a 2D projection with resolutions down to 100 microns.  X-ray projection imaging has been ubiquitous in cardiovascular, mammography, musculoskeletal, and abdominal imaging applications among others.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.15]{xray.png}
+    \caption{29 y/o male with a thigh injury with an incidental finding on x-ray of enchondroma. Source: National Library of Medicine}
+    \label{fig:xray}
+\end{figure}
+\subsubsection{Nuclear medicine - Cassen, 1951\cite{r2}, Figure \ref{fig:nuclearMed}}
+\textbf{Nuclear medicine} relies on imaging gamma rays emitted from radioactive isotopes administered into the body. These isotopes emit radiation captured by an external camera to create images. Techniques such as Single Photon Emission Computed Tomography (SPECT - Kuhl, Edwards, 1963) and Positron Emission Tomography (PET – Ter-Pogossian, 1972)\cite{r1} compile these emissions into 3D images.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{nuclearMed.png}
+    \caption{Anterior and posterior planar images of the chest from a nuclear medicine bone scan (obtained 2 hours after injection of Tc-99m HDP) demonstrating abnormal radiopharmaceutical accumulation within the left ventricular walls (curved black arrows) of Nuclear Medicine Bone Scan Source: National Library of Medicine}
+    \label{fig:nuclearMed}
+\end{figure}
+\subsubsection{Ultrasound (US) – Ian Donald, 1962\cite{r2}, Figure \ref{fig:US}}
+\textbf{Ultrasound imaging (US)}, which utilizes sound waves in the 1–10 MHz range to create images of internal tissues, works by measuring the echoes from pulses that scatter back from internal structures. Ultrasound is quick and capable of real-time imaging, such as monitoring blood flow in arteries. A key advantage is that it does not use ionizing radiation, making it safer for patients\cite{r1}. Ultrasound is widely used for real-time monitoring of heart activity and fetal development. Its application has grown to include 3D and 4D imaging, although, these methods may offer lower temporal resolution.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.30]{US.png}
+    \caption{A twenty-six-years-old female third gravida with a history of two prior cesarean sections was referred for a routine antenatal ultrasound scan at 20 weeks of gestation. Source: National Library of Medicine}
+    \label{fig:US}
+\end{figure}
+\subsubsection{Magnetic Resonance Imaging (MRI) - Lauterbur, Mansfield, Hutchison, 1972\cite{r2}, Figure \ref{fig:MRI}}
+\textbf{Magnetic Resonance Imaging (MRI)} uses an external magnetic field and radio-frequency (RF) pulses to create detailed volumetric images, primarily of hydrogen nuclei, without the use of ionizing radiation. Widely used across various fields, MRI excels in musculoskeletal, cardiovascular, and neurological imaging due to its exceptional soft-tissue contrast\cite{r1}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.30]{MRI.png}
+    \caption{28-year-old man with a longstanding history of behavior problems and learning disability. The patient had an MRI scan done to evaluate a new onset (2 months) of headaches. Source: National Library of Medicine}
+    \label{fig:MRI}
+\end{figure}
+\subsubsection{Computed Tomography (CT) - Hounsfield, 1973\cite{r2}, Figure \ref{fig:CT}}
+\textbf{Computed Tomography (CT)} like MRI, provides volumetric scans but constructs a 3D image from a series of 2D axial slices. Modern CT scanners, equipped with advanced solid-state detectors, have reached spatial resolutions as fine as 0.25 mm, and multiple detector rows allow broad spatial coverage with minimal slice thicknesses of 0.625 mm\cite{r1}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.25]{CT.png}
+    \caption{65-year-old man who had CT scan for stoke evaluation
+    Source: National Library of Medicine}
+    \label{fig:CT}
+\end{figure}
+
+\subsection{\textbf{Advancements in Medical Imaging Through AI}}
+Similar to human cognitive processes, algorithms analyze medical images to recognize patterns, having been trained with a large dataset of examinations and images\cite{r3}. These systems are capable of providing insights into the nature of abnormalities, primarily by offering conditional probabilities useful for Bayesian decision-making frameworks. Moreover, data obtained from radiomics (a rapidly evolving field of research concerned with the extraction of quantitative metrics within medical images) research, including aspects like intensity, shape, texture, and wavelength, can be extracted from medical images and utilized or incorporated into machine learning strategies. This information is crucial for predicting treatment outcomes, distinguishing between benign and malignant tumors, and evaluating the genetic aspects of various cancers\cite{r3}.
+
+\section{ELECTRONIC HEALTH RECORDS (EHR)}
+\subsection{\textbf{Origins of EHR}}
+Ancient Egyptian hieroglyphic inscriptions from 1,600-3,000 BC indicate the use of medical records\cite{r5}. What is now most commonly referred to as the EHR started to enter clinical care not earlier than the 1960s\cite{r6}. A patient's electronic health record (EHR) can be viewed as a repository of information regarding their health status in a computer-readable form\cite{r7}. 
+
+\subsection{\textbf{Challenges and Progress in the Adoption of Electronic Health Records}}
+Initially, structured data entry methods were often superseded by free-text documents which were typically dictated by physicians. The adoption of Electronic Health Records (EHRs) has varied significantly across different regions and hasn't paralleled broader IT advancements\cite{r6}. Despite the global healthcare system not yet completely abandoning paper records, there has been a significant surge in the digitization of healthcare records over the past 5 to 10 years. Now, in some countries, nearly 90 percent of all healthcare records are maintained digitally thanks to the advancements in technology and the uprising of AI.
+
+\subsection{\textbf{What does it take to achieve true digital transformation in healthcare?}}
+EHR adoption is growing thanks to initiatives like the US 19 billion HITECH act10 in the United States and the 2 billion public-private partnership Innovative Medicines Initiative (IMI) 11 in the European Union. According to the Healthcare Information and Management Systems Society (HIMSS) Analytics, larger nations like the United States, Canada, and Germany fall behind smaller European countries such as Denmark and Sweden in achieving the highest level of paperless data sharing, storage, and decision support (Uwe Buddrus, HIMSS Analytics Europe, personal communication)\cite{r7}. Only a limited number of hospitals have implemented top-level Electronic Health Record (EHR) systems that encompass all hospital operations, although, a significant portion have established IT infrastructures. These systems are capable of capturing valuable research data from various auxiliary clinical and administrative systems\cite{r7}. 
+
+\subsection{\textbf{Overcoming Challenges in EHR Utilization with AI and Data Analytics}}
+Due to high data volume, experts wishing to analyze EHR can face several obstacles such as scattered, heterogeneous data, as well as ethical and legal matters that limit access\cite{r6}. Currently, most clinical and basic research data are stored in separate and disparate systems, making it challenging for clinicians and researchers to access and share this information\cite{r6}. The crucial transformation needed to contribute to biomedical research and other critical fields like drug discovery is reliant on the availability of reliable and scalable EHRs for reuse. Innovative methods with the help of ML are being employed to derive meaning from these vast datasets. Data-driven approaches are used to identify statistical patterns in large, complex datasets, which are commonly found in EHR systems. In clinical settings, due to safety considerations, these models typically play a supportive role in treatment-related decision support as AI is not yet capable of accurate, error-free results\cite{r6}. This sets a goal for humanity to emphasize on digitalization as well as AI-driven methods to improve EHR analysis and support to clinical experts for an optimized and more practical healthcare system.
+
+\section{Applications of Machine Learning in Healthcare}
+% Michaella 
+
+\subsection{Diagnosis of Thyroid Disorders}
+\subsubsection{What are Thyroid Disorders?}
+
+\textit{\\The \textbf{Thyroid} \cite{m15} is a small, butterfly-shaped gland in the front of the neck. Thyroid hormones control the way the body uses energy, affecting nearly every organ, including the heart. There are many types of thyroid disorders. 
+Some of these are:\cite{m16}\\}
+\begin{enumerate}[label=\Roman*., leftmargin=*]
+    \item\textit{\textbf{Hypothyroidism:}}
+    In this particular condition, the thyroid gland is unable to produce enough of some hormones, resulting in the slowing down of many body functions.
+    The symptoms include, among others: increased levels of the hormone TSH, weight gain, slow heart rate, fatigue, and decreased metabolism.
+    \\
+    \item \textit{\textbf{Hyperthyroidism:}}
+    This condition is the exact opposite of hypothyroidism. The gland produces a much larger quantity of hormones than the body requires. This results in an acceleration of the metabolism.
+    Some of the symptoms include decreased production of the hormone TSH, weight loss, sweating, increased heart rate, and elevated metabolism.
+    \\
+    \item \textit{\textbf{Hashimoto's disease:}} 
+    Hashimoto's disease, also known as Hashimoto's thyroiditis (HT) \cite{m17}, is a chronic, autoimmune disorder and the most common condition affecting the thyroid gland.
+    The most common symptoms \cite{m18} of HT include: neck pain, voice changes, discomfort in the throat, difficulty breathing, goiter, and fatigue.
+    \\
+    \item \textit{\textbf{Thyroid Cancer:}}
+    It is a disease in which cancerous cells appear in the gland tissues.\cite{m19} 
+    In the period from 2000 to 2020, according to the \href{https://etj.bioscientifica.com/view/journals/etj/12/3/ETJ-22-0183.xml}{[European Thyroid Journal]}, there were 1387 cases in Europe, of which 1074 cases (77.43\%) involved women. An individual may suspect they have thyroid cancer if they feel a hard lump in the front part of their neck, have a hoarse voice, have difficulty swallowing, and/or have shortness of breath, coughing, and weakness.\cite{m20} 
+\end{enumerate}
+\textit{\\}
+\subsubsection{Which factors can lead to Thyroid Disease onset?}
+\textit{\\}
+There are several factors that can lead someone to develop thyroid disease \cite{m21}. Women who have not undergone menopause are quite likely to develop thyroid cancer. Additionally, individuals suffering from other thyroid disorders, those consuming medications with high iodine content, as well as individuals undergoing radiation therapy to the head and/or neck, are also at risk of developing thyroid diseases.
+\textit{\\}
+\subsubsection{How are they diagnosed?}
+\textit{\\}
+The diagnosis of such conditions is mainly performed through physical examination, ultrasound, and hormone and antibody tests via blood tests. However, in several instances, it can be quite a painful process if the patient needs to undergo fine-needle aspiration biopsies or even radioactive iodine uptake tests, where the patient needs to be isolated.
+\textit{\\}
+
+\subsubsection{Contribution of machine learning to Thyroid Disorders}
+\cite{m22} Traditional medical procedures are being revolutionized by machine learning, which is crucial in the identification of thyroid disorders. Machine learning algorithms can find patterns and connections in patient data that may be invisible to human clinicians by examining large databases of patient data, such as symptoms, medical histories, and test results. These algorithms help doctors make quick and precise diagnosis by predicting the likelihood of thyroid problems with outstanding accuracy. Furthermore, machine learning models have the capacity to learn from fresh data continuously, improving their diagnostic skills over time. This dynamic method improves patient outcomes in the management of thyroid disorders by enhancing diagnostic accuracy and enabling customized treatment recommendations for each patient.
+
+\subsection{Disclosure of Breast Cancer}
+\subsubsection{What is exactly Breast Cancer?}
+\textit{\\}Type of cancer affecting the breast(s). Although it is a disease that is closely associated with women, it is worth noting that it also affects men.\cite{m23} It is important not to mistake all breast lumps for cancer. Most tumors that occur are benign such as fibroadenomas, phyllodes tumors and cysts. Types of breast cancer \cite{m24} includes ductal and lobular carcinoma and sarcoma
+\textit{\\}
+\subsubsection{Where does it come from?}
+\textit{\\}
+Factors \cite{m25}  that can lead to breast cancer can be divided into 2 categories: immutable factors and modifiable factors that can serve as prevention. In the first category, age plays a significant role; individuals over 50 are more likely to develop breast cancer. Additionally, hereditary factors and family history, prior treatment with radiation therapy, and genetic mutations can also contribute to the development of breast cancer.
+In the second category, sedentary lifestyle, obesity, poor diet (especially postmenopausal for women), alcohol abuse, and smoking are included among other factors.
+\textit{\\}
+\subsubsection{How are they diagnosed?}
+\textit{\\}The diagnosis \cite{m26} of breast cancer can be achieved through various methods. The most well-known is mammography, followed by ultrasound and biopsy. The latter is a rather painful procedure for the patient, as it involves the sampling of the tumor using a needle.
+\textit{\\}
+\subsubsection{Machine learning for prediction and diagnosis of breast cancer}
+\textit{\\}
+Machine learning \cite{m27} is the most accessible way to diagnose breast cancer\cite{m28}. Some algorithms used are: Decision Tree, \hyperlink{Naïve Bayes}{Naïve Bayes}, Extreme Gradient Boosting, Logistic Regression, etc. Machine learning holds tremendous promise in the realm of breast cancer detection and treatment. Through the utilization of extensive data sets, machine learning algorithms are able to examine mammograms, genetic data, and patient medical history in order to detect patterns that may indicate breast cancer in its initial stages. Additionally, by helping radiologists analyze images more precisely, these algorithms can increase the accuracy of diagnoses. Additionally, by evaluating patient data to forecast the best courses of action and possible results, machine learning models can tailor treatment regimens, improving patient care and survival rates in the process. The field of breast cancer detection and therapy is undergoing a revolution thanks to the continuous research and innovation in machine learning, which is opening up new possibilities for early detection, accurate diagnosis, and customized treatment plans.\cite{m29} 
+
+\subsection{Forecasting Disease Progression in Multiple Sclerosis}
+%\textit{\\}
+\subsubsection{What is Multiple Sclerosis?}
+%\textit{\\}
+\textit{Multiple Sclerosis (MS)} \cite{m30} is a long-term autoimmune disease that affects the central nervous system. \textit{\textbf{Myelin}} is a protein that surrounds and protects nerve fibers. The loss of myelin leads to the formation of scar tissue, known as \textit{sclerosis}. Consequently, the nerve fibers are left unprotected and exposed. As a result, they cannot transmit electrical impulses to the brain normally, and they can be easily damaged or even die completely, leading to disability.
+\\
+\subsubsection{What causes it?}
+\textit{\\}Until today, the causes of being affected by the disease are not known. However, the most prevalent reasons include a combination of environmental and hereditary factors as well as microbial, viral, and bacterial infections.
+According to the World Health Organization, data indicate that women are more susceptible to the disease. Also, regarding statistical data on the map of Europe, there are more than 700,000 people suffering from  MS.
+\\
+\subsubsection{What are the symptoms?}
+\textit{\\}The most common symptoms of the disease include numbness of the limbs, difficulty, and instability in walking, double or blurred vision, as well as dizziness and vertigo.
+\\
+\subsubsection{How it is diagnosed?}
+\textit{\\}
+\textit{The diagnosis process of the disease is initially based on the patient's medical history and continues with specialized neurological examinations, magnetic resonance imaging (MRI) scans, and a more discomforting examination for the patient: the lumbar puncture for the analysis of cerebrospinal fluid.}
+\\
+\subsubsection{How machine learning can help patients?}
+\textit{\\} \cite{m31} In the field of multiple sclerosis, machine learning assists in the diagnosis and treatment of the disease. Diagnosis is performed by examining magnetic resonance imaging (MRI) scans. Specialized machine learning algorithms (the description of these was given above - \hyperlink{MACHINE LEARNING ALGORITHMS}{Section IV}) take these scans as input, process them, and accordingly extract the results.The results yielded by these specific algorithms include, in addition to the initial diagnosis, the stage at which the patient is currently at, and they can also, in some way, "predict" the progression of the disease.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.00\linewidth]{multiple_sclerosis.png}
+    \caption{Identification of New Multiple Sclerosis Lesions in the Brain Using Machine Learning Algorithms. \\Source: https://mostafasalem.netlify.app/publication/phdthesis/}
+    \label{fig:enter-label}
+    \
+\end{figure}
+\section{Conclusion}
+In conclusion, this paper has highlighted the role of Artificial Intelligence (AI) and machine learning in revolutionizing healthcare, from their early developments to their potential future impact. These technologies enhance patient care by improving the accuracy and personalization of diagnosis, treatment, and illness management. While AI and machine learning bring significant advancements, they also introduce challenges such as ethical concerns and the need for robust regulations. Despite these difficulties, the ongoing integration of these technologies into healthcare promises to make it more effective and patient-centered, provided that their development and implementation are carefully managed and overseen. In the future, continued advancements in AI and machine learning are expected to further empower healthcare professionals by providing more comprehensive and real-time data analysis, potentially leading to breakthroughs in predictive medicine and patient care optimization.
+
+\bibliographystyle{plain}
+\bibliography{bibfile}
+
+\end{document}
+
+
